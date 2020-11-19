@@ -1,0 +1,1329 @@
+//@import "fancybox"
+//@import "bootstrap"
+@import "scss/bootstrap-reboot"
+@import "scss/bootstrap-grid"
+@import "scss/modal"
+@import "slick-less"
+
+//@import "ui"
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+
+$transition_default: .3s linear
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+
+$barlow: 'Barlow', sans-serif
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap')
+
+$playfair: 'Playfair Display', serif
+
+$color_text: #222222
+$yellow_opacity:  rgba(250, 205, 88, 0.5)
+$yellow: #FACD58
+$blue: #61ABF0
+$blue_dark: #01386a
+
+.container
+  max-width: 1200px
+
+a, button
+  +transition($transition_default)
+
+
+a
+  text-decoration: underline
+
+
+  &:hover, &:focus
+    text-decoration: none
+
+
+
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+img, video
+  max-width: 100%
+
+p
+  @media (min-width: 1201px)
+    margin-bottom: 20px
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+body
+  color: $color_text
+  font: 400 14px/19px $barlow
+  background: #e5e5e5
+
+.font-italic
+  font-style: italic
+strong, b, .font-weight-bold
+  font-weight: 600
+
+
+header
+  padding: 8px 0
+  .btn_mobile
+    width: 100%
+    max-width: 100%
+    @media (min-width: 576px)
+      display: none
+
+.header_row
+  +flex
+  +ai-center
+  +j-beetween
+  @media (max-width: 575px)
+    margin-bottom: 10px
+  .logo
+    width: 40%
+    @media (max-width: 767px)
+      width: 35%
+    @media (max-width: 575px)
+      width: 60%
+      padding-right: 15px
+  .header_right
+    +flex
+    +ai-center
+    +j-end
+    width: 60%
+    @media (max-width: 767px)
+      width: 65%
+      padding-left: 20px
+    @media (max-width: 575px)
+      width: 40%
+    .btn_default
+      @media (max-width: 767px)
+        max-width: initial
+        padding: 5px 20px
+        height: auto
+        font-size: 12px
+      @media (max-width: 575px)
+        display: none
+
+
+.btn_default
+  +flex
+  +ai-center
+  +j-center
+  width: 100%
+  max-width: 170px
+  height: 40px
+  +border-radius(2px)
+  border: 1px solid #CACACA
+  background: linear-gradient(180deg, #EEEEEE 0%, #E4E4E4 100%)
+  box-shadow: -1px 4px 2px rgba(0, 0, 0, 0.25), inset 0px 2px 4px rgba(255, 255, 255, 0.25)
+  color: $color_text
+  font-size: 14px
+  text-transform: uppercase
+  text-decoration: none
+  &:hover
+    text-decoration: none
+.mm_btn
+  width: 30px
+  height: 25px
+  margin-left: 10px
+
+  .hamburger
+    background: none
+    border: 0
+    position: relative
+    width: 30px
+    height: 25px
+    span
+      position: absolute
+      width: 100%
+      height: 3px
+      background: $blue_dark
+      left: 0
+      +border-radius(2px)
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        top: 0
+        bottom: 0
+        margin: auto
+      &:nth-child(3)
+        bottom: 0
+  @media (min-width: 992px)
+    display: none
+
+
+.lang_menu
+  +flex
+  +ai-center
+  margin-left: 125px
+  @media (max-width: 1200px)
+    margin-left: 100px
+  @media (max-width: 991px)
+    margin-left: 50px
+  @media (max-width: 767px)
+    margin-left: 30px
+  @media (max-width: 575px)
+    margin-left: 20px
+  li
+    + li
+      margin-left: 20px
+      @media (max-width: 767px)
+        margin-left: 10px
+    a
+      font-size: 16px
+      color: $color_text
+      text-decoration: none
+      @media (max-width: 767px)
+        font-size: 14px
+      &.active
+        font-weight: 600
+      &:hover
+        color: $blue_dark
+
+
+.main_banners
+  position: relative
+  border-bottom: 2px solid $yellow
+
+
+.main_menu
+  @media (min-width: 768px)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 99
+    padding-top: 15px
+  @media (max-width: 767px)
+    position: fixed
+    background: #fff
+    width: 80%
+    top: 0
+    right: 0
+
+    height: 100%
+    z-index: 9999
+    padding: 50px 10px
+    +transition($transition_default)
+    +transform(translateX(100%))
+    opacity: 0
+    &.open
+      +transform(translateX(0))
+      opacity: 1
+
+  .mm_close
+    width: 30px
+    height: 30px
+    background: $blue_dark
+    position: absolute
+    right: 0
+    top: 0
+    cursor: pointer
+    &:before, &:after
+      +b_a
+      +m_a
+      width: 20px
+      height: 2px
+      background: #fff
+      +border-radius(2px)
+    &:before
+      +transform(rotate(45deg))
+    &:after
+      +transform(rotate(-45deg))
+
+    @media (min-width: 768px)
+      display: none
+
+  .main_nav
+    +flex
+    +ai-center
+    +j-end
+    +wrap
+    li
+      padding: 0 15px
+      @media (max-width: 1200px)
+        padding: 0 5px
+      @media (max-width: 767px)
+        width: 100%
+        text-align: center
+
+      &:last-child
+        padding-right: 0
+      a
+        display: inline-block
+        font: 900 14px $barlow
+        color: #fff
+        text-decoration: none
+        padding: 20px 10px
+        @media (max-width: 767px)
+          color: $color_text
+          padding: 10px
+        &:hover
+          text-decoration: none
+          color: $yellow
+
+.main_slider
+  .slick-dots
+    bottom: 15px
+    width: 100%
+    max-width: 1170px
+    +flex
+    +ai-center
+    +j-end
+    li
+      margin: 0
+      position: relative
+      padding: 0 3px 6px
+      width: auto
+      height: auto
+      &.slick-active
+        &:before
+          opacity: 1
+        button
+          background: $blue
+
+      &:before
+        +b_a
+        width: 100%
+        height: 2px
+        background: #A6BACB
+        left: 0
+        bottom: 0
+        +transition($transition_default)
+        opacity: 0
+      button
+        width: 35px
+        height: 3px
+        background: #F6F6F6
+        padding: 0
+        +transition($transition_default)
+        &:before
+          display: none
+  .main_slider_item
+    background-position: center
+    background-size: cover
+    height: 750px
+    position: relative
+    @media (max-width: 1200px)
+      height: 650px
+    @media (max-width: 991px)
+      height: 600px
+    @media (max-width: 767px)
+      height: 500px
+    @media (max-width: 575px)
+      height: 400px
+    &:before
+      +b_a
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      background: linear-gradient(180deg, rgba(0, 56, 107, 0.65) 0%, rgba(0, 91, 173, 0.35) 32.47%, rgba(69, 167, 224, 0.4) 54.14%, rgba(0, 19, 37, 0.35) 71.77%, rgba(0, 19, 37, 0.53) 82.99%, rgba(0, 19, 37, 0.62) 100%)
+
+    .main_slider_item_content
+      height: 100%
+      +flex
+      +ai-center
+      +j-end
+      position: relative
+      @media (max-width: 767px)
+        +ai-start
+        padding-top: 50px
+      .title
+        color: #fff
+        text-transform: uppercase
+        font: 600 80px/96px $barlow
+        text-align: right
+        @media (max-width: 1200px)
+          font: 600 60px/1.2 $barlow
+        @media (max-width: 991px)
+          font: 600 50px/1.2 $barlow
+        @media (max-width: 767px)
+          font: 600 30px/1.2 $barlow
+
+
+
+
+.main_map
+  width: 100%
+  height: 621px
+  background: #E5E5E5 url(../img/map_bg.png) right / contain no-repeat
+  z-index: 2
+  @media (max-width: 991px)
+    background-size: cover
+  @media (max-width: 575px)
+    height: auto
+    .container
+      padding: 0
+
+.about_country
+  max-width: 670px
+  background: #fff
+  margin-top: -180px
+  position: absolute
+  @media (max-width: 1200px)
+    margin-top: -140px
+  @media (max-width: 991px)
+    margin-top: -100px
+    max-width: 60%
+  @media (max-width: 575px)
+    position: relative
+    max-width: 100%
+    margin: 0
+  .a_header
+    background: $yellow
+    padding: 45px 50px
+    @media (max-width: 1200px)
+      padding: 30px 35px
+    @media (max-width: 991px)
+      padding: 20px 25px
+    @media (max-width: 767px)
+      padding: 15px
+    .title
+      font: 600 40px/75px $barlow
+      color: $color_text
+      text-transform: uppercase
+      margin-bottom: 20px
+      @media (max-width: 1200px)
+        font-size: 30px
+        line-height: 1.2
+      @media (max-width: 991px)
+        font-size: 28px
+      @media (max-width: 767px)
+        font-size: 25px
+    .sub_title
+      font: 500 22px/36px $barlow
+      text-transform: uppercase
+      color: $color_text
+      @media (max-width: 1200px)
+        font-size: 20px
+        line-height: 1.2
+      @media (max-width: 991px)
+        font-size: 18px
+      @media (max-width: 767px)
+        font-size: 16px
+  .a_footer
+    padding: 30px 50px
+    @media (max-width: 1200px)
+      padding: 30px 35px
+    @media (max-width: 991px)
+      padding: 20px 25px
+    @media (max-width: 767px)
+      padding: 15px
+
+
+
+
+.custom_title
+  position: relative
+  font-size: 32px
+  line-height: 1.2
+  font-weight: 700
+  padding: 16px 0
+  margin-bottom: 15px
+  font-family: $playfair
+  @media (max-width: 1200px)
+    font-size: 28px
+  @media (max-width: 991px)
+    font-size: 25px
+  @media (max-width: 767px)
+    font-size: 23px
+  span
+    position: relative
+
+  &:before
+    +b_a
+    left: -27px
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 75px
+    height: 70px
+    background: $yellow_opacity
+    @media (max-width: 1200px)
+      width: 60px
+      height: 55px
+      left: -20px
+    @media (max-width: 991px)
+      width: 50px
+      height: 45px
+      left: -15px
+    @media (max-width: 767px)
+      left: -10px
+      width: 45px
+      height: 45px
+
+
+
+
+
+.main_about
+  background-size: cover
+  background-position: center
+  min-height: 750px
+  +flex
+  +ai-center
+  @media (max-width: 1200px)
+    min-height: auto
+    padding: 50px 0
+  @media (max-width: 575px)
+    background-position: 64% 100%
+  .container
+    > div
+      @media (max-width: 575px)
+        background: rgba(255, 255, 255, 0.52)
+        padding: 10px
+        +border-radius(5px)
+  .desc
+    max-width: 670px
+    margin-bottom: 130px
+    @media (max-width: 1200px)
+      margin-bottom: 100px
+      max-width: 50%
+    @media (max-width: 991px)
+      margin-bottom: 50px
+    @media (max-width: 767px)
+      margin-bottom: 30px
+      max-width: 60%
+
+    p
+      font-weight: 500
+      font-size: 28px
+      line-height: 34px
+      color: #222222
+      margin-bottom: 35px
+      @media (max-width: 1200px)
+        font-size: 25px
+        line-height: 1.2
+        margin-bottom: 30px
+      @media (max-width: 991px)
+        font-size: 22px
+        margin-bottom: 25px
+      @media (max-width: 767px)
+        font-size: 16px
+        margin-bottom: 20px
+      @media (max-width: 575px)
+        font-size: 14px
+  a
+    font-weight: 600
+    font-size: 16px
+    text-decoration-line: underline
+    text-transform: uppercase
+    color: #222222
+    &:hover
+      text-decoration: none
+    @media (max-width: 767px)
+      font-size: 14px
+
+
+
+.banner
+  height: 750px
+  background-position: center
+  background-size: cover
+  +flex
+  +ai-center
+  margin-bottom: 110px
+  &.bg
+    position: relative
+    .container
+      position: relative
+    &:before
+      +b_a
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      background: linear-gradient(180deg, rgba(0, 56, 107, 0.65) 0%, rgba(0, 91, 173, 0.35) 32.47%, rgba(29, 104, 148, 0.25) 58.53%, rgba(0, 19, 37, 0.26) 74.76%, rgba(0, 19, 37, 0.62) 100%)
+
+  .container
+    +flex
+    +ai-center
+    +j-end
+  @media (max-width: 1200px)
+    height: auto
+    padding: 70px 0
+    margin-bottom: 30px
+
+  .banner_content
+    background: $yellow
+    width: 100%
+    max-width: 570px
+    padding: 50px
+    @media (max-width: 1200px)
+      padding: 30px
+    @media (max-width: 767px)
+      padding: 20px 15px
+    .title
+      font-weight: 700
+      font-size: 32px
+      line-height: 1.2
+      color: #222222
+      font-family: $playfair
+      margin-bottom: 35px
+      @media (max-width: 1200px)
+        font-size: 28px
+        margin-bottom: 30px
+      @media (max-width: 991px)
+        font-size: 25px
+        margin-bottom: 25px
+      @media (max-width: 767px)
+        font-size: 22px
+        margin-bottom: 20px
+    .excerpt
+      margin-bottom: 35px
+      @media (max-width: 1200px)
+        margin-bottom: 30px
+      @media (max-width: 991px)
+        margin-bottom: 25px
+      @media (max-width: 767px)
+        margin-bottom: 20px
+    a
+      font-weight: 600
+      font-size: 16px
+      text-decoration-line: underline
+      text-transform: uppercase
+      color: #222222
+      &:hover
+        text-decoration: none
+      @media (max-width: 767px)
+        font-size: 14px
+
+
+
+h2, .h2
+  text-align: center
+  font-weight: 700
+  font-size: 32px
+  line-height: 1.2
+  color: #222222
+  font-family: $playfair
+  margin: 40px 0
+  @media (max-width: 1200px)
+    margin: 30px 0
+    font-size: 28px
+  @media (max-width: 991px)
+    font-size: 25px
+    margin: 20px 0
+  @media (max-width: 767px)
+    font-size: 23px
+.participants
+  background: #E5E5E5
+  padding-top: 70px
+  padding-bottom: 110px
+  @media (max-width: 1200px)
+    padding-top: 50px
+    padding-bottom: 70px
+  @media (max-width: 991px)
+    padding-top: 30px
+    padding-bottom: 50px
+  @media (max-width: 767px)
+    padding-top: 30px
+    padding-bottom: 30px
+  .participants_list
+    > div
+      text-align: center
+      padding-left: 25px
+      @media (min-width: 1201px)
+        &:nth-child(2)
+          padding-top: 35px
+      @media (max-width: 1200px)
+        margin-bottom: 20px
+  .p_item
+    background: #fff
+    max-width: 345px
+    margin: auto
+    .p_item_body
+      padding: 0 25px 5px
+      text-align: left
+      @media (max-width: 1200px)
+        padding: 0 15px 5px
+      .custom_title
+        font-size: 22px
+        padding-bottom: 0
+        &:before
+          @media (max-width: 1200px)
+            width: 55px
+            height: 55px
+            left: -30px
+          @media (min-width: 1201px)
+            left: -50px
+            top: -10px
+
+
+
+
+.main_contacts
+  padding-bottom: 110px
+  @media (max-width: 1200px)
+    padding-bottom: 80px
+  @media (max-width: 991px)
+    padding-bottom: 50px
+  @media (max-width: 767px)
+    padding-bottom: 30px
+  .container
+    position: relative
+    text-align: right
+  .main_contacts_box
+    width: 100%
+    max-width: 470px
+    background: #fff
+    text-align: left
+    padding: 50px
+    @media (max-width: 1200px)
+      padding: 30px
+    @media (max-width: 991px)
+      padding: 20px 30px
+    @media (max-width: 767px)
+      padding: 10px 20px
+    @media (min-width: 1201px)
+      min-height: 255px
+    @media (min-width: 768px)
+
+      position: absolute
+      bottom: -20px
+      left: 15px
+    ul
+      li
+        margin-bottom: 20px
+        @media (max-width: 1200px)
+          margin-bottom: 10px
+
+.logo_box
+  padding-bottom: 60px
+  @media (max-width: 1200px)
+    padding-bottom: 40px
+  @media (max-width: 767px)
+    padding-bottom: 30px
+  .logo_group
+    +flex
+    +wrap
+    border-top: 1px solid #D4D4D4
+    padding: 45px 0 35px
+    @media (max-width: 1200px)
+      padding: 30px 0 20px
+    @media (max-width: 767px)
+      padding: 15px 0 5px
+    .title
+      width: 24.5%
+      font-weight: 500
+      font-size: 16px
+      line-height: 1.2
+      color: #888888
+      @media (max-width: 767px)
+        width: 100%
+        margin-bottom: 20px
+    .logo_list
+      width: 75.5%
+      +flex
+      +ai-center
+      +wrap
+      @media (max-width: 767px)
+        width: 100%
+      img
+        +transition($transition_default)
+        -webkit-filter: grayscale(100%)
+        -moz-filter: grayscale(100%)
+        -ms-filter: grayscale(100%)
+        -o-filter: grayscale(100%)
+        filter: grayscale(100%)
+        filter: gray
+        margin: 0 13px 10px
+        &:hover
+          -webkit-filter: grayscale(0)
+          -moz-filter: grayscale(0)
+          -ms-filter: grayscale(0)
+          -o-filter: grayscale(0)
+          filter: grayscale(0)
+
+
+.b_bottom
+  border-bottom: 2px solid $yellow
+
+
+
+footer
+  background: #222222
+  color: #fff
+  padding: 45px 0 25px
+  @media (max-width: 767px)
+    padding: 30px 0 5px
+  .footer_row
+    +flex
+    +j-beetween
+    +wrap
+    margin: 0 -15px
+    @media (max-width: 1200px)
+      +j-start
+    @media (max-width: 767px)
+      //+j-center
+
+    > div
+      padding: 0 15px
+      margin-bottom: 20px
+      @media (max-width: 575px)
+        width: 100%
+
+    .copyright
+      max-width: 290px
+      font: 300 12px/1.2 $barlow
+
+.location
+  position: relative
+  font-size: 12px
+  line-height: 1.2
+  padding-left: 23px
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    width: 10px
+    height: 14px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='14' viewBox='0 0 10 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5 0C2.23571 0 0 2.191 0 4.9C0 8.575 5 14 5 14C5 14 10 8.575 10 4.9C10 2.191 7.76429 0 5 0ZM5 6.65C4.01429 6.65 3.21429 5.866 3.21429 4.9C3.21429 3.934 4.01429 3.15 5 3.15C5.98571 3.15 6.78571 3.934 6.78571 4.9C6.78571 5.866 5.98571 6.65 5 6.65Z' fill='white'/%3e%3c/svg%3e ")
+
+
+.email
+  display: inline-block
+  position: relative
+  color: #ffffff
+  font-size: 12px
+  text-decoration: none
+  padding-left: 23px
+  &:hover
+    color: $yellow
+    text-decoration: underline
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 14px
+    height: 10px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.6 0H1.4C0.63 0 0.00699999 0.5625 0.00699999 1.25L0 8.75C0 9.4375 0.63 10 1.4 10H12.6C13.37 10 14 9.4375 14 8.75V1.25C14 0.5625 13.37 0 12.6 0ZM12.6 2.5L7 5.625L1.4 2.5V1.25L7 4.375L12.6 1.25V2.5Z' fill='white'/%3e%3c/svg%3e ")
+
+.social
+  span
+    display: block
+    font-size: 12px
+    color: #fff
+    margin-bottom: 10px
+.social_menu
+  +flex
+  +ai-center
+  li
+    padding: 0 4px
+    a
+      display: inline-block
+      width: 30px
+      height: 30px
+      background: #fff
+      +border-radius(50%)
+      position: relative
+      &:hover
+        background: $yellow
+      img
+        position: absolute
+        +m_a
+
+
+.page_banner
+  position: relative
+  background-size: cover
+  background-position: center
+  height: 375px
+  +flex
+  +ai-center
+  +j-center
+  @media (max-width: 1200px)
+    height: 320px
+  @media (max-width: 767px)
+    height: auto
+    min-height: 150px
+    padding: 30px 0
+
+  &:before
+    +b_a
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background: linear-gradient(180deg, rgba(0, 56, 107, 0.65) 0%, rgba(16, 111, 197, 0.35) 28.25%, rgba(43, 131, 211, 0.42) 50.39%, rgba(2, 40, 75, 0.43) 81.61%, rgba(0, 19, 37, 0.62) 100%)
+
+.page_title
+  position: relative
+  z-index: 2
+  color: #fff
+  text-transform: uppercase
+  font: normal 40px/1.2 $barlow
+  @media (max-width: 1200px)
+    font-size: 35px
+  @media (max-width: 991px)
+    font-size: 30px
+  @media (max-width: 767px)
+    font-size: 25px
+
+
+
+
+.page_content
+  padding: 30px 0
+  @media (max-width: 991px)
+    padding: 20px 0
+
+.page_nav
+  margin-bottom: 70px
+  display: block
+  overflow: auto
+  @media (max-width: 1200px)
+    margin-bottom: 50px
+  @media (max-width: 991px)
+    margin-bottom: 30px
+  @media (max-width: 767px)
+    margin-bottom: 0
+  &.dates
+    ul
+      li
+        a
+          font-size: 14px
+  ul
+    +flex
+    +ai-center
+    +j-center
+
+  li
+    list-style: none
+    padding: 0 15px
+    @media (max-width: 1200px)
+      margin-bottom: 5px
+
+    a
+      color: #888888
+      font-size: 16px
+      text-decoration: none
+      display: inline-block
+      position: relative
+      padding: 15px 0
+      white-space: nowrap
+      @media (max-width: 1200px)
+        padding-bottom: 5px
+
+      &.active, &:hover
+        font-weight: 600
+        border-bottom: 2px solid $yellow
+
+.download
+  color: $color_text
+  text-decoration: underline
+  text-transform: uppercase
+  font: italic 600 16px $barlow
+  display: inline-block
+  &:hover, &:focus
+    text-decoration: none
+    color: $yellow
+
+.pr_list
+  .pr_item
+    width: 100%
+
+    &:first-child
+      .pr_item_header
+        border-top: 1px solid #D4D4D4
+    .pr_item_header
+      border-bottom: 1px solid #D4D4D4
+
+    &.act
+      .pr_item_body
+        .pr_item_body_content
+          background: $yellow
+      .pr_item_header
+        background: $yellow
+        border-bottom: 1px solid #888888
+        .col_right
+          .pr_toggler
+            &:before
+              width: 19px
+              height: 5px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='19' height='5' viewBox='0 0 19 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 1H1V4H8H11H18V1H11H8Z' fill='%23888888' stroke='%23222222'/%3e%3c/svg%3e ")
+    > div
+      +flex
+
+
+    .col_left
+      width: 17%
+      padding-left: 25px
+      @media (max-width: 1200px)
+        padding-left: 5px
+        padding-right: 10px
+      @media (max-width: 767px)
+        width: 90px
+        min-width: 90px
+      @media (max-width: 575px)
+        width: 80px
+        min-width: 80px
+      .time
+        color: #888888
+        font: 500 16px $barlow
+        @media (max-width: 767px)
+          font-size: 14px
+        @media (max-width: 575px)
+          font-size: 12px
+    .col_right
+      width: 83%
+      padding-right: 25px
+      @media (max-width: 1200px)
+        padding-right: 5px
+      @media (max-width: 767px)
+        width: calc(100% - 90px)
+      @media (max-width: 575px)
+        width: calc(100% - 80px)
+    .pr_item_body
+      display: none
+      .pr_item_body_comments
+        padding-top: 50px
+        padding-bottom: 45px
+        .col_left
+          @media (max-width: 575px)
+            display: none
+        .col_right
+          @media (max-width: 575px)
+            width: 100%
+        h3
+          font: 700 22px $barlow
+          text-transform: uppercase
+          margin-bottom: 30px
+          @media (max-width: 1200px)
+            font-size: 20px
+          @media (max-width: 991px)
+            font-size: 18px
+          @media (max-width: 767px)
+            font-size: 16px
+
+      .pr_item_body_content
+        padding-top: 25px
+        iframe
+          margin-bottom: -20px
+        .col_left
+          @media (max-width: 575px)
+            display: none
+        .col_right
+          @media (max-width: 575px)
+            width: 100%
+            padding: 0 15px
+      .col_right
+        padding-right: 100px
+        @media (max-width: 1200px)
+          padding-right: 30px
+        @media (max-width: 767px)
+          padding-right: 0
+        p.bold
+          padding-top: 15px
+          font-size: 16px
+          font-weight: 600
+          text-transform: uppercase
+          margin-bottom: 20px
+        .participants_list
+          margin-bottom: 15px
+        .p_item
+          .custom_title
+            font-size: 16px
+            line-height: 19px
+            font-family: $barlow
+            margin-bottom: 0
+            &:before
+              display: none
+
+
+
+    .pr_item_header
+      padding: 35px 0
+      @media (max-width: 1200px)
+        padding: 30px 0
+      @media (max-width: 767px)
+        padding: 20px 0
+      .col_right
+        +flex
+        +j-beetween
+        > div
+          width: calc(100% - 60px)
+          @media (max-width: 1200px)
+            width: calc(100% - 30px)
+        .pr_toggler
+          position: relative
+          width: 19px
+          min-width: 19px
+          height: 19px
+          cursor: pointer
+          &:before
+            +b_a
+            +m_a
+            width: 19px
+            height: 19px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='19' height='19' viewBox='0 0 19 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 8H1V11H8V18H11V11H18V8H11V1H8V8Z' fill='%23888888' stroke='%23222222'/%3e%3c/svg%3e ")
+          &.act
+            &:before
+              width: 19px
+              height: 5px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='19' height='5' viewBox='0 0 19 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 1H1V4H8H11H18V1H11H8Z' fill='%23888888' stroke='%23222222'/%3e%3c/svg%3e ")
+
+
+        .title
+          color: $color_text
+          font: 600 14px/1.2 $barlow
+          margin-bottom: 5px
+        span
+          display: block
+          color: #888888
+          font: 500 12px/1.2 $barlow
+
+
+
+
+.text-center
+  text-align: center
+
+
+.comment_list
+  margin-bottom: 15px
+
+  .comment_item
+    +flex
+    margin-bottom: 10px
+    .first_letter
+      width: 60px
+      min-width: 60px
+      height: 60px
+      background: #FFFFFF
+      border: 1px solid #D4D4D4
+      +border-radius(30px)
+      +flex
+      +ai-center
+      +j-center
+      color: #888888
+      font: 600 32px $barlow
+      margin-right: 15px
+      @media (max-width: 767px)
+        width: 40px
+        min-width: 40px
+        height: 40px
+        font-size: 25px
+        margin-right: 10px
+    .comment_content
+      .comment_head
+        +flex
+        +ai-center
+        +j-beetween
+        margin-bottom: 20px
+        .comment_author
+          font: 600 14px $barlow
+          color: $color_text
+          padding-right: 15px
+        .comment_date
+          color: #888888
+          font-size: 14px
+        .comment_body
+          font-size: 14px
+          line-height: 19px
+          color: #222222
+
+.link
+  color: $color_text
+  text-decoration: underline
+  text-transform: uppercase
+  font-weight: 600
+  font-size: 16px
+  font-family: $barlow
+  &:hover, &:focus
+    color: $yellow
+
+
+.comment_form_box
+  @media (max-width: 767px)
+    padding-top: 30px
+  .title
+    font-size: 16px
+    font-weight: 700
+    margin-bottom: 20px
+  .comment_form
+    .btn_default
+      background: #363D41
+      max-width: 270px
+      height: 50px
+      +box-shadow(none)
+      color: #fff
+      &:hover
+        background: $yellow
+    .field
+      margin-bottom: 8px
+      textarea
+        height: 170px
+      .form-control
+        width: 100%
+        border: 1px solid #D4D4D4
+        background: #fff
+        font-size: 16px
+        font-family: $barlow
+        padding: 15px
+        &::-webkit-input-placeholder
+          color: #888888
+          font-size: 12px
+          font-family: $barlow
+        &::-moz-placeholder
+          color: #888888
+          font-size: 12px
+          font-family: $barlow
+        &::-ms-input-placeholder
+          color: #888888
+          font-size: 12px
+          font-family: $barlow
+        &:-moz-placeholder
+          color: #888888
+          font-size: 12px
+          font-family: $barlow
+        &:-ms-input-placeholder
+          color: #888888
+          font-size: 12px
+          font-family: $barlow
+
+
+iframe
+  @media (max-width: 1200px)
+    height: 400px !important
+  @media (max-width: 767px)
+    height: 350px !important
+  @media (max-width: 575px)
+    height: 300px !important
+
+
+
+.text_item
+  border-bottom: 1px solid #D4D4D4
+  padding: 35px 0
+  @media (max-width: 1200px)
+    padding: 30px 0
+  @media (max-width: 991px)
+    padding: 20px 0
+  @media (max-width: 767px)
+    padding: 15px 0
+  &:first-child
+    padding-top: 0
+  p
+    &:last-child
+      margin-bottom: 0
+  &:last-of-type
+    border-bottom: 0
+
+
+
+.tab-pane
+  display: none
+  &.show
+    display: block
